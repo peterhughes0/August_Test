@@ -28,16 +28,18 @@ namespace TestFramework
 
         public static void CleanUpTest(TestContext currentTest)
         {
-           
+            
             var outcome = currentTest.Result.Outcome.ToString();
 
             if (!outcome.Contains("Failed"))
             {
+                Telegram_API.Send_Message(null, "Everything is good!!!");
                 Driver.Close();
             }
 
             else
             {
+                Telegram_API.Send_Message(null, "Something didn't work");
                 TakeScreenshot(Data.GetSafeFileName(TestContext.CurrentContext.Test.Name));  
             }
         }
