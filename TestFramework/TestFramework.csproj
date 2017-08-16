@@ -35,7 +35,8 @@
   <ItemGroup>
     <Reference Include="DriverFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\New folder\DriverBase\DriverFramework\bin\Debug\DriverFramework.dll</HintPath>
+      <HintPath Condition="Exists('..\DriverFramework\')">..\DriverFramework\bin\Debug\DriverFramework.dll</HintPath>
+      <HintPath Condition="Exists('..\..\DriverFramework\')">..\..\..\DriverFramework\bin\Debug\DriverFramework.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
