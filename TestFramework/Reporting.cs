@@ -97,6 +97,7 @@ namespace TestFramework
 
         public static void TakeScreenshot(string details)
         {
+            Driver.DesktopResize();
             var date = DateTime.Today.ToShortDateString().ToString(new CultureInfo("en-GB"));
             details = details.Replace("\"", "-");
             details = details.Replace("\\", "-");

@@ -10,6 +10,8 @@ namespace TestFramework
 {
     public class Data
     {
+        public static string StagingSite = "http://staging.growobservatory.org";
+
         public static HttpClient httpClient = new HttpClient();
 
         public static string replaceLinesWithSpace(string text)

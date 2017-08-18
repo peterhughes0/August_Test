@@ -17,25 +17,21 @@ using DriverFramework;
 
 namespace TestFramework
 {
-    public class Class1 : Driver
+    public class Homepage : Driver
     {
 
-        public static void NavigateToBasicPage()
+        public static void CheckHomepage()
         {
+
+            WebDriverWait waitUntilPageConditions = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
             try
             {
-
-
-                var googleSearchBox = driver.FindElement(By.ClassName("gfi"));
-
-                googleSearchBox.SendKeys("Hi");
-
-                googleSearchBox.SendKeys(Keys.Return);
+                waitUntilPageConditions.Until((d) => {return !Driver.ContainsText("If you are the owner of this website, please contact your hosting provider:"); });
             }
 
             catch(Exception)
             {
-                throw new Exception(string.Format("Failed to manipulate search element."));
+                throw new Exception(string.Format("Failed to Reach Grow Observatory Homepage"));
             }
         }
     }

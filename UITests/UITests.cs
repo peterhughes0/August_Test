@@ -34,15 +34,15 @@ namespace UiTests
         [SetUp]
         public void startDriver()
         {
-            Driver.Initialize(Driver.Browser.Headless_Chrome, TestContext.CurrentContext);
-            //Data.siteUrl = "www.google.com";
+            Driver.Initialize(Driver.Browser.Chrome, TestContext.CurrentContext);
         }
 
-        [TestCase]
-        public void BasicFirstTest()
+        [TestCase(TestName = "Homepage Health Check")]
+        [Category("Ping")]
+        public void HomepagePing()
         {
-            Driver.GoTo("https://www.google.co.uk");
-            Class1.NavigateToBasicPage();
+            Driver.GoTo(Data.StagingSite);
+            Homepage.CheckHomepage();
         }
 
         /// <summary>
