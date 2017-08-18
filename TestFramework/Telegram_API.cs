@@ -13,10 +13,8 @@ namespace TestFramework
     public static class Telegram_API
     {
 
-        public static void Send_Message(string chat_id, string message)
+        public static void Send_Message(string message, string chat_id = "271154317", string parse_mode = "HTML")
         {
-            chat_id = "271154317";
-            message = "test message from autobot";
 
             var urlBuilder = new UriBuilder(string.Format("https://api.telegram.org/bot285631342:AAHk9uxE8F7MW1P1scVJLqt139_gViIzOxE/sendMessage?chat_id={0}&text={1}", chat_id, message));
 

@@ -41,7 +41,7 @@
     <Reference Include="DriverFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath Condition="Exists('..\DriverFramework\')">..\DriverFramework\bin\Debug\DriverFramework.dll</HintPath>
-      <HintPath Condition="Exists('..\..\DriverFramework\')">..\..\..\DriverFramework\bin\Debug\DriverFramework.dll</HintPath>
+      <HintPath Condition="Exists('..\..\DriverBase\')">...\..\DriverBase\DriverFramework\bin\Debug\DriverFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.1.11\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>

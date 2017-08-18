@@ -22,7 +22,7 @@ namespace TestFramework
 
         public static void NavigateToBasicPage()
         {
-            var googleSearchBox = driver.FindElement(By.ClassName("gsfi"));
+            var googleSearchBox = driver.FindElement(By.ClassName("gfi"));
 
             googleSearchBox.SendKeys("Hi");
 
