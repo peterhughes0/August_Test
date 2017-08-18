@@ -79,7 +79,7 @@ namespace TestFramework
                 catch (WebDriverException)
                 { }
 
-                Telegram_API.Send_Message(BuilNotification(name, currentTest.Result.Message, blobUrl), "271154317", "HTML");
+                Telegram_API.Send_Message(BuilNotification(name, currentTest.Result.Message, blobUrl), "-238095289", "HTML");
 
             }
            
