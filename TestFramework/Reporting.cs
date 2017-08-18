@@ -87,7 +87,9 @@ namespace TestFramework
 
         public static string BuilNotification(string testName, string errorMessage, string imageUrl = "")
         {
-            var message = string.Format("Error!{2}{2}Test:{0}{2}Details:{1}{2}{3}", testName, errorMessage, Environment.NewLine, imageUrl);
+            imageUrl = string.Format("<a href='{0}'>Image</a>", imageUrl);
+
+            var message = string.Format("<b>Error!</b>{2}{2}<b>Test:  </b>{0}{2}{2}<b>Details:  </b>{1}{2}{2}{3}", testName, errorMessage, Environment.NewLine, imageUrl);
 
             return message;
         }
@@ -99,7 +101,7 @@ namespace TestFramework
             details = details.Replace("\"", "-");
             details = details.Replace("\\", "-");
             date = date.Replace("/", "_");
-            var time = DateTime.Now.ToString("HH:mm tt");
+            var time = DateTime.Now.ToString("HH:mm");
             time = time.Replace(":", "-");
             var Location = rootLocation;
             System.IO.Directory.SetCurrentDirectory(Location);

@@ -22,11 +22,21 @@ namespace TestFramework
 
         public static void NavigateToBasicPage()
         {
-            var googleSearchBox = driver.FindElement(By.ClassName("gfi"));
+            try
+            {
 
-            googleSearchBox.SendKeys("Hi");
 
-            googleSearchBox.SendKeys(Keys.Return);
+                var googleSearchBox = driver.FindElement(By.ClassName("gfi"));
+
+                googleSearchBox.SendKeys("Hi");
+
+                googleSearchBox.SendKeys(Keys.Return);
+            }
+
+            catch(Exception)
+            {
+                throw new Exception(string.Format("Failed to manipulate search element."));
+            }
         }
     }
 }
