@@ -17,6 +17,7 @@ using System.Globalization;
 using Microsoft.WindowsAzure; // Namespace for CloudConfigurationManager
 using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
+using System.Threading;
 
 namespace TestFramework
 {
@@ -27,7 +28,8 @@ namespace TestFramework
 
         public static void InitialiseValues()
         {
-            
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-GB");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-GB");
         }
 
 
@@ -97,7 +99,7 @@ namespace TestFramework
             details = details.Replace("\"", "-");
             details = details.Replace("\\", "-");
             date = date.Replace("/", "_");
-            var time = DateTime.Now.ToShortTimeString();
+            var time = DateTime.Now.ToString("HH:mm tt");
             time = time.Replace(":", "-");
             var Location = rootLocation;
             System.IO.Directory.SetCurrentDirectory(Location);
