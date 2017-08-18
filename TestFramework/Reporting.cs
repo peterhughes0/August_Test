@@ -42,7 +42,7 @@ namespace TestFramework
 
             if (!outcome.Contains("Failed"))
             {
-                Telegram_API.Send_Message(null, "Everything is good!!!");
+                //Telegram_API.Send_Message(null, "Everything is good!!!");
                 Driver.Close();
             }
 
