@@ -34,7 +34,7 @@ namespace UiTests
         [SetUp]
         public void startDriver()
         {
-            Driver.Initialize(Driver.Browser.Chrome, TestContext.CurrentContext);
+            Driver.Initialize(Driver.Browser.Headless_Chrome, TestContext.CurrentContext);
         }
 
         [TestCase(TestName = "Homepage Health Check")]
