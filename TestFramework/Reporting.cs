@@ -33,7 +33,7 @@ namespace TestFramework
         }
 
 
-        public static void CleanUpTest(TestContext currentTest)
+        public static void CleanUpTest(TestContext currentTest, bool live = false)
         {
             
             var outcome = currentTest.Result.Outcome.ToString();
@@ -79,17 +79,27 @@ namespace TestFramework
                 catch (WebDriverException)
                 { }
 
-                Telegram_API.Send_Message(BuilNotification(name, currentTest.Result.Message, blobUrl), "-238095289", "HTML");
+                Telegram_API.Send_Message(BuilNotification(name, currentTest.Result.Message, blobUrl, live), "-238095289", "HTML");
 
             }
            
         }
 
-        public static string BuilNotification(string testName, string errorMessage, string imageUrl = "")
+        public static string BuilNotification(string testName, string errorMessage, string imageUrl = "", bool live = false)
         {
             imageUrl = string.Format("<a href='{0}'>Image</a>", imageUrl);
 
-            var message = string.Format("<b>Error!</b>{2}{2}<b>Test:  </b>{0}{2}{2}<b>Details:  </b>{1}{2}{2}{3}", testName, errorMessage, Environment.NewLine, imageUrl);
+            string message = null;
+
+            if (live)
+            {
+                message = string.Format("<b>Error!</b>{2}{2}<b>Environment: Live</b>{2}<b>Test: </b>{0}{2}{2}<b>Details:  </b>{1}{2}{2}{3}", testName, errorMessage, Environment.NewLine, imageUrl);
+            }
+
+            else
+            {
+                message = string.Format("<b>Error!</b>{2}{2}<b>Environment: Staging</b>{2}<b>Test:  </b>{0}{2}{2}<b>Details:  </b>{1}{2}{2}{3}", testName, errorMessage, Environment.NewLine, imageUrl);
+            }
 
             return message;
         }

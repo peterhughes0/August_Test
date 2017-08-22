@@ -10,7 +10,13 @@ namespace TestFramework
 {
     public class Data
     {
-        public static string StagingSite = "http://staging.growobservatory.org";
+        public static string StagingSite = "https://beta.growobservatory.org/";
+
+        public static string MainApplication = "https://hub.growobservatory.org/";
+
+        public static string KnowledgeBase = "https://knowledge.growobservatory.org/";
+
+        public static string StyleGuide = "https://style-guide.growobservatory.org/";
 
         public static HttpClient httpClient = new HttpClient();
 

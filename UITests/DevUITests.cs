@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 namespace UiTests
 {
     [TestFixture]
-    public class UiTests
+    public class DevUiTests
     {
 
 
@@ -38,10 +38,10 @@ namespace UiTests
         }
 
         [TestCase(TestName = "Homepage Health Check")]
-        [Category("Ping")]
+        [Category("Staging")]
         public void HomepagePing()
         {
-            Driver.GoTo(Data.MainApplication);
+            Driver.GoTo(Data.StagingSite);
             Homepage.CheckHomepage();
         }
 
@@ -51,7 +51,7 @@ namespace UiTests
         [TearDown]
         public void CleanUp()
         {
-            Reporting.CleanUpTest(TestContext.CurrentContext, true);
+            Reporting.CleanUpTest(TestContext.CurrentContext);
         }
     }
 }
