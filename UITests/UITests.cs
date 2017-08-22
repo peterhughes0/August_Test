@@ -45,6 +45,14 @@ namespace UiTests
             Homepage.CheckHomepage();
         }
 
+        [TestCase(TestName = "Knowledgebase Homepage Health Check")]
+        [Category("Ping")]
+        public void KnowledgebaseHomepagePing()
+        {
+            Driver.GoTo(Data.KnowledgeBase);
+            Homepage.CheckKnowledgebaseHomepage();
+        }
+
         /// <summary>
         /// 
         /// </summary>

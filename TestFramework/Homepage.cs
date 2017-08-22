@@ -37,5 +37,20 @@ namespace TestFramework
                 throw new Exception(string.Format("Failed to Reach Grow Observatory Homepage - Url:{0}", driver.Url));
             }
         }
+
+        public static void CheckKnowledgebaseHomepage()
+        {
+            WebDriverWait waitUntilPageConditions = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            try
+            {
+
+                waitUntilPageConditions.Until((d) => { return Driver.ContainsText("How can we help?", 3); });
+            }
+
+            catch (Exception)
+            {
+                throw new Exception(string.Format("Failed to Reach Grow Observatory Knowledgebase Homepage - Url:{0}", driver.Url));
+            }
+        }
     }
 }
